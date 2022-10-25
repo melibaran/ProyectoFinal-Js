@@ -992,6 +992,60 @@ if(marcarTablero10[0] != null){
 }
 
 
+// LOCAL STORAGE THEME
+
+const toggleTheme = document.getElementById("toggleTheme")
+const circuloTheme = document.getElementById("circuloTheme")
+const fondo = document.getElementById("fondo")
+const circuloBoton = document.getElementById("circuloBoton")
+
+
+let infoLocalS
+
+if(localStorage.getItem("theme")){
+    infoLocalS = localStorage.getItem("theme")
+    if(infoLocalS == "oscuro"){
+        document.body.classList.add("oscuro")
+        toggleTheme.classList.add("themeOscuro")
+        toggleTheme.classList.remove("theme")
+        circuloTheme.classList.add("circuloOscuro")
+        circuloTheme.classList.remove("circulo")
+        if(circuloBoton != null){
+            circuloBoton.classList.add("circuloBotonOscuro")
+            circuloBoton.classList.remove("circuloBoton")
+        }
+    }
+} else{
+    localStorage.setItem("theme", "claro")
+}
+
+toggleTheme.addEventListener("click", () =>{
+    if(toggleTheme.classList[0] == "theme"){
+        document.body.classList.add("oscuro")
+        toggleTheme.classList.add("themeOscuro")
+        toggleTheme.classList.remove("theme")
+        circuloTheme.classList.add("circuloOscuro")
+        circuloTheme.classList.remove("circulo")
+        localStorage.setItem("theme", "oscuro")
+        if(circuloBoton != null){
+            circuloBoton.classList.add("circuloBotonOscuro")
+            circuloBoton.classList.remove("circuloBoton")
+        }
+    } else{
+        document.body.classList.remove("oscuro")
+        toggleTheme.classList.add("theme")
+        toggleTheme.classList.remove("themeOscuro")
+        circuloTheme.classList.add("circulo")
+        circuloTheme.classList.remove("circuloOscuro")
+        localStorage.setItem("theme", "claro")
+        if(circuloBoton != null){
+            circuloBoton.classList.add("circuloBoton")
+            circuloBoton.classList.remove("circuloBotonOscuro")
+        }
+    }
+})
+
+
 // info. del usuario
 
 let nombreUsuario = document.getElementById("nombreUsuario")
