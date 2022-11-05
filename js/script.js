@@ -3105,21 +3105,21 @@ function reloj (tamano){
             minutos++;
             // si minutos es menor a 10 agregar un 0 antes en el dom
             if(minutos < 10){
-                minutosP.innerText = `0${minutos}`;
+                minutosP.innerText = `0${minutos}`
             }else{
-                minutosP.innerText = `${minutos}`;
+                minutosP.innerText = `${minutos}`
             }
             // minutosP.innerText = `${minutos} `
         }
         // si segundos es menor a 10 agregar un 0 antes en el dom
         if(segundos < 10){
-            segundosP.innerText = `:0${segundos}`;
+            segundosP.innerText = `:0${segundos}`
         }else{
-            segundosP.innerText = `:${segundos}`;
+            segundosP.innerText = `:${segundos}`
         }
         if((estadoJuego == "gana") || ( estadoJuego == "pierde")){
             clearInterval(intervalo);
-            tiempoTotal = `${minutos}:${segundos}`;
+            tiempoTotal = `${minutos}:${segundos}`
             guardarResultados(tamano);
         }
     }
@@ -3162,79 +3162,79 @@ if(marcarTablero15[0] != null){
     let {tamano} = tablero1_15x15;
     marcarTableroYContarVidas15();
     reloj(tamano ?? "15x15");
-};
+}
 
 if(marcarTablero20[0] != null){
     let {tamano} = tablero1_20x20;
     marcarTableroYContarVidas20();
     reloj(tamano ?? "20x20");
-};
+}
 
 // LOCAL STORAGE THEME
 
-const toggleTheme = document.getElementById("toggleTheme")
-const circuloTheme = document.getElementById("circuloTheme")
-const fondo = document.getElementById("fondo")
-const circuloBoton = document.getElementById("circuloBoton")
+const toggleTheme = document.getElementById("toggleTheme");
+const circuloTheme = document.getElementById("circuloTheme");
+const fondo = document.getElementById("fondo");
+const circuloBoton = document.getElementById("circuloBoton");
 
 
-let infoLocalS
+let infoLocalS;
 
 if(localStorage.getItem("theme")){
-    infoLocalS = localStorage.getItem("theme")
+    infoLocalS = localStorage.getItem("theme");
     if(infoLocalS == "oscuro"){
-        document.body.classList.add("oscuro")
-        toggleTheme.classList.add("themeOscuro")
-        toggleTheme.classList.remove("theme")
-        circuloTheme.classList.add("circuloOscuro")
-        circuloTheme.classList.remove("circulo")
+        document.body.classList.add("oscuro");
+        toggleTheme.classList.add("themeOscuro");
+        toggleTheme.classList.remove("theme");
+        circuloTheme.classList.add("circuloOscuro");
+        circuloTheme.classList.remove("circulo");
         if(circuloBoton != null){
-            circuloBoton.classList.add("circuloBotonOscuro")
-            circuloBoton.classList.remove("circuloBoton")
+            circuloBoton.classList.add("circuloBotonOscuro");
+            circuloBoton.classList.remove("circuloBoton");
         }
     }
 } else{
-    localStorage.setItem("theme", "claro")
+    localStorage.setItem("theme", "claro");
 }
 
 toggleTheme.addEventListener("click", () =>{
     if(toggleTheme.classList[0] == "theme"){
-        document.body.classList.add("oscuro")
-        toggleTheme.classList.add("themeOscuro")
-        toggleTheme.classList.remove("theme")
-        circuloTheme.classList.add("circuloOscuro")
-        circuloTheme.classList.remove("circulo")
-        localStorage.setItem("theme", "oscuro")
+        document.body.classList.add("oscuro");
+        toggleTheme.classList.add("themeOscuro");
+        toggleTheme.classList.remove("theme");
+        circuloTheme.classList.add("circuloOscuro");
+        circuloTheme.classList.remove("circulo");
+        localStorage.setItem("theme", "oscuro");
         if(circuloBoton != null){
-            circuloBoton.classList.add("circuloBotonOscuro")
-            circuloBoton.classList.remove("circuloBoton")
+            circuloBoton.classList.add("circuloBotonOscuro");
+            circuloBoton.classList.remove("circuloBoton");
         }
     } else{
-        document.body.classList.remove("oscuro")
-        toggleTheme.classList.add("theme")
-        toggleTheme.classList.remove("themeOscuro")
-        circuloTheme.classList.add("circulo")
-        circuloTheme.classList.remove("circuloOscuro")
-        localStorage.setItem("theme", "claro")
+        document.body.classList.remove("oscuro");
+        toggleTheme.classList.add("theme");
+        toggleTheme.classList.remove("themeOscuro");
+        circuloTheme.classList.add("circulo");
+        circuloTheme.classList.remove("circuloOscuro");
+        localStorage.setItem("theme", "claro");
         if(circuloBoton != null){
-            circuloBoton.classList.add("circuloBoton")
-            circuloBoton.classList.remove("circuloBotonOscuro")
+            circuloBoton.classList.add("circuloBoton");
+            circuloBoton.classList.remove("circuloBotonOscuro");
         }
     }
-})
+});
 
 
 // info. del usuario
 
-let nombreUsuario = document.getElementById("nombreUsuario")
-let avatarUsuario = document.getElementById("avatarUsuario")
-let avatarUsuario2 = document.getElementById("avatarUsuario2")
-let avatarUsuario3 = document.getElementById("avatarUsuario3")
+let nombreUsuario = document.getElementById("nombreUsuario");
+let avatarUsuario = document.getElementById("avatarUsuario");
+let avatarUsuario2 = document.getElementById("avatarUsuario2");
+let avatarUsuario3 = document.getElementById("avatarUsuario3");
 
 
 if((puntajeTotal != null) && (infoLocalSUsuario != null)) {
     puntajeTotal.innerText = `TOTAL:${infoLocalSUsuario[0].puntaje}`
-}
+};
 
 if((nombreUsuario != null) && (infoLocalSUsuario != null) ){
     nombreUsuario.innerText = `${infoLocalSUsuario[0].nombre.toUpperCase()}`
@@ -3243,9 +3243,9 @@ if((nombreUsuario != null) && (infoLocalSUsuario != null) ){
         avatarUsuario.alt = "avatar-usuario"
     } else if(avatarUsuario2 != null){
         avatarUsuario2.src = `../assets/${infoLocalSUsuario[0].avatar}.svg`
-        avatarUsuario2.alt = "avatar-usuario"
+        avatarUsuario2.alt = "avatar-usuario";
     } else if(avatarUsuario3 != null){
         avatarUsuario3.src = `../../assets/${infoLocalSUsuario[0].avatar}.svg`
-        avatarUsuario3.alt = "avatar-usuario"
+        avatarUsuario3.alt = "avatar-usuario";
     }
-}
+};
